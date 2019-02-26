@@ -1,0 +1,3 @@
+Configure miss: db2pdf
+Configure miss: db2ps
+Configure miss: whether to add -D_FORTIFY_SOURCE=2 to CPPFLAGS
