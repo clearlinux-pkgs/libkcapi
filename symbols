@@ -11,6 +11,9 @@ libkcapi.so.1:LIBKCAPI_1.1.2
 libkcapi.so.1:LIBKCAPI_1.1.3
 libkcapi.so.1:LIBKCAPI_1.1.4
 libkcapi.so.1:LIBKCAPI_1.1.5
+libkcapi.so.1:LIBKCAPI_1.2.0
+libkcapi.so.1:LIBKCAPI_1.2.1
+libkcapi.so.1:LIBKCAPI_1.3.0
 libkcapi.so.1:kcapi_aead_authsize
 libkcapi.so.1:kcapi_aead_blocksize
 libkcapi.so.1:kcapi_aead_ccm_nonce_to_iv
@@ -52,6 +55,8 @@ libkcapi.so.1:kcapi_cipher_stream_init_dec
 libkcapi.so.1:kcapi_cipher_stream_init_enc
 libkcapi.so.1:kcapi_cipher_stream_op
 libkcapi.so.1:kcapi_cipher_stream_update
+libkcapi.so.1:kcapi_cipher_stream_update_last
+libkcapi.so.1:kcapi_get_maxsplicesize
 libkcapi.so.1:kcapi_handle_reinit
 libkcapi.so.1:kcapi_hkdf
 libkcapi.so.1:kcapi_kdf_ctr
@@ -85,6 +90,7 @@ libkcapi.so.1:kcapi_rng_get_bytes
 libkcapi.so.1:kcapi_rng_init
 libkcapi.so.1:kcapi_rng_seed
 libkcapi.so.1:kcapi_rng_seedsize
+libkcapi.so.1:kcapi_set_maxsplicesize
 libkcapi.so.1:kcapi_set_verbosity
 libkcapi.so.1:kcapi_version
 libkcapi.so.1:kcapi_versionstring
