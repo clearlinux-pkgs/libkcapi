@@ -4,12 +4,13 @@
 #
 Name     : libkcapi
 Version  : 1.3.1
-Release  : 4
+Release  : 5
 URL      : https://github.com/smuellerDD/libkcapi/archive/v1.3.1/libkcapi-1.3.1.tar.gz
 Source0  : https://github.com/smuellerDD/libkcapi/archive/v1.3.1/libkcapi-1.3.1.tar.gz
 Summary  : Linux Kernel Crypto API User Space Interface Library
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
+Requires: libkcapi-filemap = %{version}-%{release}
 Requires: libkcapi-lib = %{version}-%{release}
 Requires: libkcapi-license = %{version}-%{release}
 BuildRequires : cppcheck
@@ -36,10 +37,19 @@ Requires: libkcapi = %{version}-%{release}
 dev components for the libkcapi package.
 
 
+%package filemap
+Summary: filemap components for the libkcapi package.
+Group: Default
+
+%description filemap
+filemap components for the libkcapi package.
+
+
 %package lib
 Summary: lib components for the libkcapi package.
 Group: Libraries
 Requires: libkcapi-license = %{version}-%{release}
+Requires: libkcapi-filemap = %{version}-%{release}
 
 %description lib
 lib components for the libkcapi package.
@@ -65,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1626203443
+export SOURCE_DATE_EPOCH=1633756625
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -75,11 +85,11 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 unset PKG_CONFIG_PATH
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=haswell"
-export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
-export FFLAGS="$FFLAGS -m64 -march=haswell"
-export FCFLAGS="$FCFLAGS -m64 -march=haswell"
-export LDFLAGS="$LDFLAGS -m64 -march=haswell"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 %reconfigure --disable-static
 make  %{?_smp_mflags}
 popd
@@ -94,13 +104,14 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1626203443
+export SOURCE_DATE_EPOCH=1633756625
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkcapi
 cp %{_builddir}/libkcapi-1.3.1/COPYING.bsd %{buildroot}/usr/share/package-licenses/libkcapi/44a9f67b4a6876452742044723d955958f241b2c
 cp %{_builddir}/libkcapi-1.3.1/COPYING.gplv2 %{buildroot}/usr/share/package-licenses/libkcapi/b47456e2c1f38c40346ff00db976a2badf36b5e3
 pushd ../buildavx2/
-%make_install_avx2
+%make_install_v3
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 %make_install
 
@@ -110,7 +121,6 @@ popd
 %files dev
 %defattr(-,root,root,-)
 /usr/include/kcapi.h
-/usr/lib64/haswell/libkcapi.so
 /usr/lib64/libkcapi.so
 /usr/lib64/pkgconfig/libkcapi.pc
 /usr/share/man/man3/kcapi_aead_authsize.3
@@ -220,12 +230,15 @@ popd
 /usr/share/man/man3/kcapi_version.3
 /usr/share/man/man3/kcapi_versionstring.3
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-libkcapi
+
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/haswell/libkcapi.so.1
-/usr/lib64/haswell/libkcapi.so.1.3.1
 /usr/lib64/libkcapi.so.1
 /usr/lib64/libkcapi.so.1.3.1
+/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
