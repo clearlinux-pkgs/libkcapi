@@ -15,6 +15,7 @@ libkcapi.so.1:LIBKCAPI_1.2.0
 libkcapi.so.1:LIBKCAPI_1.2.1
 libkcapi.so.1:LIBKCAPI_1.3.0
 libkcapi.so.1:LIBKCAPI_1.3.1
+libkcapi.so.1:LIBKCAPI_1.4.0
 libkcapi.so.1:kcapi_aead_authsize
 libkcapi.so.1:kcapi_aead_blocksize
 libkcapi.so.1:kcapi_aead_ccm_nonce_to_iv
@@ -42,11 +43,15 @@ libkcapi.so.1:kcapi_aead_stream_update_last
 libkcapi.so.1:kcapi_cipher_blocksize
 libkcapi.so.1:kcapi_cipher_dec_aes_cbc
 libkcapi.so.1:kcapi_cipher_dec_aes_ctr
+libkcapi.so.1:kcapi_cipher_dec_sm4_cbc
+libkcapi.so.1:kcapi_cipher_dec_sm4_ctr
 libkcapi.so.1:kcapi_cipher_decrypt
 libkcapi.so.1:kcapi_cipher_decrypt_aio
 libkcapi.so.1:kcapi_cipher_destroy
 libkcapi.so.1:kcapi_cipher_enc_aes_cbc
 libkcapi.so.1:kcapi_cipher_enc_aes_ctr
+libkcapi.so.1:kcapi_cipher_enc_sm4_cbc
+libkcapi.so.1:kcapi_cipher_enc_sm4_ctr
 libkcapi.so.1:kcapi_cipher_encrypt
 libkcapi.so.1:kcapi_cipher_encrypt_aio
 libkcapi.so.1:kcapi_cipher_init
@@ -73,6 +78,7 @@ libkcapi.so.1:kcapi_md_hmac_sha224
 libkcapi.so.1:kcapi_md_hmac_sha256
 libkcapi.so.1:kcapi_md_hmac_sha384
 libkcapi.so.1:kcapi_md_hmac_sha512
+libkcapi.so.1:kcapi_md_hmac_sm3
 libkcapi.so.1:kcapi_md_init
 libkcapi.so.1:kcapi_md_setkey
 libkcapi.so.1:kcapi_md_sha1
@@ -80,6 +86,7 @@ libkcapi.so.1:kcapi_md_sha224
 libkcapi.so.1:kcapi_md_sha256
 libkcapi.so.1:kcapi_md_sha384
 libkcapi.so.1:kcapi_md_sha512
+libkcapi.so.1:kcapi_md_sm3
 libkcapi.so.1:kcapi_md_update
 libkcapi.so.1:kcapi_memset_secure
 libkcapi.so.1:kcapi_pad_iv
@@ -91,6 +98,8 @@ libkcapi.so.1:kcapi_rng_get_bytes
 libkcapi.so.1:kcapi_rng_init
 libkcapi.so.1:kcapi_rng_seed
 libkcapi.so.1:kcapi_rng_seedsize
+libkcapi.so.1:kcapi_rng_setaddtl
+libkcapi.so.1:kcapi_rng_setentropy
 libkcapi.so.1:kcapi_set_maxsplicesize
 libkcapi.so.1:kcapi_set_verbosity
 libkcapi.so.1:kcapi_version
