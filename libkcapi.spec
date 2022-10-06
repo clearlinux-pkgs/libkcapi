@@ -4,7 +4,7 @@
 #
 Name     : libkcapi
 Version  : 1.4.0
-Release  : 15
+Release  : 16
 URL      : https://github.com/smuellerDD/libkcapi/archive/v1.4.0/libkcapi-1.4.0.tar.gz
 Source0  : https://github.com/smuellerDD/libkcapi/archive/v1.4.0/libkcapi-1.4.0.tar.gz
 Summary  : Linux Kernel Crypto API User Space Interface Library
@@ -65,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656131131
+export SOURCE_DATE_EPOCH=1665098692
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -94,12 +94,12 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1656131131
+export SOURCE_DATE_EPOCH=1665098692
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkcapi
-cp %{_builddir}/libkcapi-1.4.0/COPYING %{buildroot}/usr/share/package-licenses/libkcapi/5d5f6328aa28826ff829bb743d99aa26001f7828
-cp %{_builddir}/libkcapi-1.4.0/COPYING.bsd %{buildroot}/usr/share/package-licenses/libkcapi/44a9f67b4a6876452742044723d955958f241b2c
-cp %{_builddir}/libkcapi-1.4.0/COPYING.gplv2 %{buildroot}/usr/share/package-licenses/libkcapi/b47456e2c1f38c40346ff00db976a2badf36b5e3
+cp %{_builddir}/libkcapi-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libkcapi/5d5f6328aa28826ff829bb743d99aa26001f7828
+cp %{_builddir}/libkcapi-%{version}/COPYING.bsd %{buildroot}/usr/share/package-licenses/libkcapi/44a9f67b4a6876452742044723d955958f241b2c
+cp %{_builddir}/libkcapi-%{version}/COPYING.gplv2 %{buildroot}/usr/share/package-licenses/libkcapi/b47456e2c1f38c40346ff00db976a2badf36b5e3
 pushd ../buildavx2/
 %make_install_v3
 popd
@@ -112,6 +112,7 @@ popd
 %files dev
 %defattr(-,root,root,-)
 /usr/include/kcapi.h
+/usr/lib64/glibc-hwcaps/x86-64-v3/libkcapi.so
 /usr/lib64/libkcapi.so
 /usr/lib64/pkgconfig/libkcapi.pc
 /usr/share/man/man3/kcapi_aead_authsize.3
@@ -229,7 +230,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libkcapi.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libkcapi.so.1
 /usr/lib64/glibc-hwcaps/x86-64-v3/libkcapi.so.1.4.0
 /usr/lib64/libkcapi.so.1
