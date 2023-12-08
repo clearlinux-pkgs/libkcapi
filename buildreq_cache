@@ -1,3 +1,4 @@
 1.4.0
 cppcheck
+perl(Getopt::Long)
 xmlto
