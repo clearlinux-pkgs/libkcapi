@@ -16,6 +16,7 @@ libkcapi.so.1:LIBKCAPI_1.2.1
 libkcapi.so.1:LIBKCAPI_1.3.0
 libkcapi.so.1:LIBKCAPI_1.3.1
 libkcapi.so.1:LIBKCAPI_1.4.0
+libkcapi.so.1:LIBKCAPI_1.5.0
 libkcapi.so.1:kcapi_aead_authsize
 libkcapi.so.1:kcapi_aead_blocksize
 libkcapi.so.1:kcapi_aead_ccm_nonce_to_iv
@@ -85,6 +86,10 @@ libkcapi.so.1:kcapi_md_sha1
 libkcapi.so.1:kcapi_md_sha224
 libkcapi.so.1:kcapi_md_sha256
 libkcapi.so.1:kcapi_md_sha384
+libkcapi.so.1:kcapi_md_sha3_224
+libkcapi.so.1:kcapi_md_sha3_256
+libkcapi.so.1:kcapi_md_sha3_384
+libkcapi.so.1:kcapi_md_sha3_512
 libkcapi.so.1:kcapi_md_sha512
 libkcapi.so.1:kcapi_md_sm3
 libkcapi.so.1:kcapi_md_update
