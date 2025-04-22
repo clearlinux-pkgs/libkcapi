@@ -7,7 +7,7 @@
 #
 Name     : libkcapi
 Version  : 1.5.0
-Release  : 21
+Release  : 22
 URL      : https://github.com/smuellerDD/libkcapi/archive/v1.5.0/libkcapi-1.5.0.tar.gz
 Source0  : https://github.com/smuellerDD/libkcapi/archive/v1.5.0/libkcapi-1.5.0.tar.gz
 Summary  : Linux Kernel Crypto API User Space Interface Library
